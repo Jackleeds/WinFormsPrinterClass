@@ -35,18 +35,7 @@ namespace WinFormsPrinterClass
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PrintDocument prtdoc = new PrintDocument();
-            string strDefaultPrinter = prtdoc.PrinterSettings.PrinterName;//获取默认的打印机名
-
-            foreach (string ss in PrinterSettings.InstalledPrinters)
-            {
-                ///在列表框中列出所有的打印机,
-                this.comboBox_printer.Items.Add(ss);
-                if (ss == strDefaultPrinter)//把默认打印机设为缺省值
-                {
-                    comboBox_printer.SelectedIndex = comboBox_printer.Items.IndexOf(ss);
-                }
-            }
+           
         }
 
         private void button2_Connect_Click(object sender, EventArgs e)
@@ -131,11 +120,7 @@ namespace WinFormsPrinterClass
             }
             else
             {
-               /* streamWriter = new StreamWriter(printerName, false, System.Text.Encoding.UTF8);
-                streamWriter.Write(this.prtContent);
-                streamWriter.Flush();
-                RawPrinterHelper.SendStringToPrinter(printerName, this.prtContent);
-                result = "OK";*/
+                
                  
             }
 
@@ -147,32 +132,12 @@ namespace WinFormsPrinterClass
 
         private void PrintBtn_Click(object sender, EventArgs e)
         {
-           // string printerName = textBox_ip.Text.Trim();
+            string printerName = textBox_ip.Text.Trim();
             string AssetNo = textBox1_AssetNo.Text.Trim();
             string MaterialNo = textBox2_MaterialNo.Text.Trim();
             string Model = textBox3_Model.Text.Trim();
-            //printAssetLabel(printerName, AssetNo, MaterialNo, Model);
-          
-
-             //获取选中的打印机名称
-            string selectedPrinter = comboBox_printer.SelectedItem.ToString();
+             printAssetLabel(printerName, AssetNo, MaterialNo, Model);
             
-            //使用选中的打印机名称进行打印操作
-            /* PrintDocument print = new PrintDocument();
-             print.PrinterSettings.PrinterName = selectedPrinter;*/
-            try
-            {
-               string result=  printAssetLabel(selectedPrinter, AssetNo, MaterialNo, Model);
-                if (result == "OK")
-                {
-                    richTextBox1.Text = "打印成功！";
-                }
-                 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("打印出错:" + ex, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }  
         }
 
         public string printAssetLabel(string printerName, string assetNo, string materialNo, string model)
@@ -182,9 +147,9 @@ namespace WinFormsPrinterClass
             stringBuilder.AppendLine("GAP 2mm,0mm");
             stringBuilder.AppendLine("DIRECTION 1");
             stringBuilder.AppendLine("CLS");
-            stringBuilder.AppendLine("TEXT 200,189,\"FONT001\",0,2,2,\"规格型号\"");
-            stringBuilder.AppendLine("TEXT 199,141,\"FONT001\",0,2,2,\"物资编号\"");
-            stringBuilder.AppendLine("TEXT 197,90,\"FONT001\",0,2,2,\"资产编号\"");
+            stringBuilder.AppendLine("TEXT 200,189,\"FONT001\",0,2,2,\"Model:\"");
+            stringBuilder.AppendLine("TEXT 199,141,\"FONT001\",0,2,2,\"materialNo:\"");
+            stringBuilder.AppendLine("TEXT 197,90,\"FONT001\",0,2,2,\"assetNo:\"");
             stringBuilder.AppendLine("TEXT 305,87,\"FONT001\",0,2,2,\"" + assetNo + "\"");
             stringBuilder.AppendLine("TEXT 305,138,\"FONT001\",0,2,2,\"" + materialNo + "\"");
             stringBuilder.AppendLine("TEXT 305,189,\"FONT001\",0,2,2,\"" + model + "\"");
@@ -193,7 +158,6 @@ namespace WinFormsPrinterClass
             this.prtContent = stringBuilder.ToString();
             return this.PrintLabel(printerName);
         }
-
-
+ 
     }
 }

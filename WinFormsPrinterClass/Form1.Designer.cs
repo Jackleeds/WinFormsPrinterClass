@@ -40,10 +40,6 @@
             label4 = new Label();
             label3 = new Label();
             PrintBtn = new Button();
-            comboBox_printer = new ComboBox();
-            label5 = new Label();
-            groupBox2 = new GroupBox();
-            groupBox3 = new GroupBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -68,7 +64,7 @@
             // 
             button2_Connect.Location = new Point(231, 20);
             button2_Connect.Name = "button2_Connect";
-            button2_Connect.Size = new Size(68, 28);
+            button2_Connect.Size = new Size(82, 30);
             button2_Connect.TabIndex = 3;
             button2_Connect.Text = "连接";
             button2_Connect.UseVisualStyleBackColor = true;
@@ -76,9 +72,9 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(12, 285);
+            richTextBox1.Location = new Point(12, 191);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(579, 104);
+            richTextBox1.Size = new Size(576, 144);
             richTextBox1.TabIndex = 4;
             richTextBox1.Text = "";
             // 
@@ -100,7 +96,7 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(12, 83);
+            groupBox1.Location = new Point(12, 54);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(579, 131);
             groupBox1.TabIndex = 6;
@@ -150,64 +146,25 @@
             // 
             // PrintBtn
             // 
-            PrintBtn.Location = new Point(499, 229);
+            PrintBtn.Location = new Point(319, 20);
             PrintBtn.Name = "PrintBtn";
-            PrintBtn.Size = new Size(79, 32);
+            PrintBtn.Size = new Size(76, 30);
             PrintBtn.TabIndex = 7;
             PrintBtn.Text = "打印";
             PrintBtn.UseVisualStyleBackColor = true;
             PrintBtn.Click += PrintBtn_Click;
             // 
-            // comboBox_printer
-            // 
-            comboBox_printer.FormattingEnabled = true;
-            comboBox_printer.Location = new Point(423, 23);
-            comboBox_printer.Name = "comboBox_printer";
-            comboBox_printer.Size = new Size(155, 25);
-            comboBox_printer.TabIndex = 8;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(346, 26);
-            label5.Name = "label5";
-            label5.Size = new Size(71, 17);
-            label5.TabIndex = 9;
-            label5.Text = "选择打印机:";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Location = new Point(12, 2);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(293, 75);
-            groupBox2.TabIndex = 10;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "方式一:";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Location = new Point(311, 2);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(280, 75);
-            groupBox3.TabIndex = 11;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "方式二:";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(603, 411);
-            Controls.Add(label5);
-            Controls.Add(comboBox_printer);
+            ClientSize = new Size(600, 347);
             Controls.Add(PrintBtn);
             Controls.Add(richTextBox1);
             Controls.Add(button2_Connect);
             Controls.Add(label1);
             Controls.Add(textBox_ip);
             Controls.Add(groupBox1);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox3);
             Name = "Form1";
             Text = "打印系统";
             Load += Form1_Load;
@@ -230,9 +187,5 @@
         private Label label4;
         private Label label3;
         private Button PrintBtn;
-        private ComboBox comboBox_printer;
-        private Label label5;
-        private GroupBox groupBox2;
-        private GroupBox groupBox3;
     }
 }
